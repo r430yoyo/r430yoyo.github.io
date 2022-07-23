@@ -1,0 +1,369 @@
+body {
+	margin: 0;
+	background-color: #E9E9E9;
+	overflow-x: hidden;
+}
+a {
+	text-decoration: none;
+	color: #29ABE2;
+}
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* Internet Explorer/Edge */
+	user-select: none;           /* Non-prefixed version, currently not supported by any browser */ 
+}
+
+.navbar-wrap {
+	position: relative;
+	height: 70px;
+	background: url('images/menu_bg_00.jpg') center no-repeat;
+	background-size: 100% auto;
+	z-index: 1;
+}
+.navbar {
+	position: relative;
+	width: 1024px;
+	margin: 0 auto;
+}
+.navfade {
+	position: absolute;
+	left: -1032px;
+	background-image: url("images/Logo_bg_1592x1px.png");
+	background-repeat: repeat-y;
+	width: 1700px;
+	height: 70px;
+	z-index: -2;
+}
+.nav-item {
+	display: inline-block;
+	vertical-align: top;
+	line-height: 70px;
+	color: white;
+	text-shadow: 1px 1px 1px black;
+}
+#nav-logo {
+}
+#nav-logo #nav-logo-flag {
+	display: inline-block;
+	background: url('images/logo_flag.png');
+	width: 67px;
+	height: 38px;
+	vertical-align: middle;
+}
+#nav-logo #nav-logo-text {
+	display: inline-block;
+	background: url('images/logo_text.png');
+	width: 104px;
+	height: 38px;
+	vertical-align: middle;
+}
+#nav-title {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin: 0 20px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+#nav-lang,
+#nav-print {
+	float: right;
+	margin: 0 10px;
+}
+#nav-lang a,
+#nav-print a {
+	color: white;
+}
+
+.desktop{
+	display: block;
+}
+
+.map-wrap {
+	background-color: white;
+}
+.map-nav {
+	/*height: 100px;*/
+	width: 1024px;
+	margin: 0 auto;
+	padding: 15px 0;
+	list-style: none;
+	white-space: normal;
+}
+.map-navitem {
+	display: inline-block;
+	/*margin: 31px 16px;*/
+	margin:15px;
+	padding: 5px 32px;
+	font-size: 1.1em;
+	color: #662D91;
+	background-color: white;
+	border: 1px solid #662D91;
+	border-radius: 25px;
+	cursor: pointer;
+}
+.map-navitem:hover {
+	color: white;
+	background-color: #662D91;
+}
+.map-navitem-active {
+	color: white;
+	background-color: #662D91;
+}
+.map-content {
+	display: none;
+	width: 100%;
+	height: 464px;
+	background: url('images/earth.jpg') center no-repeat;
+	box-shadow: 0px 0px 10px 0px inset;
+}
+
+#map-content {
+	width: 100%;
+	height: 500px;
+	/*background: url('images/earth.jpg') center no-repeat;*/
+	box-shadow: 0px 0px 10px 0px inset;
+}
+.lt-ie9 #map-content {
+	display: none;
+}
+
+.headline-wrap {
+	width: 1024px;
+	margin: 25px auto;
+}
+
+.country-wrap {
+	width: 1024px;
+	margin: 30px auto 55px auto;
+}
+.country-row {
+	display: inline-block;
+	background-color: white;
+	border-left: 6px solid #BA9BC9;
+	margin: 10px 0px 10px 10px;
+}
+.country-continue {
+	border-left: 6px solid white;
+}
+.country-block {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 250px;
+	max-height: 160px;
+	padding: 20px 30px;
+	margin: 20px 0;
+	vertical-align: top;
+	font-size: 0.8rem;
+	overflow: hidden;
+	transition: 1s;
+}
+.country-block:hover {
+	max-height: 500px;
+	transition: 1s;
+}
+.country-block:first-child {
+	margin-right: -6px;
+}
+.country-block:last-child {
+	margin-right: -10px;
+}
+.country-block:not(:first-child) {
+	/*border-left: 2px solid #BA9BC9;*/
+}
+.country-split-left{
+	float:left;
+	width: 250px;
+}
+.country-split-right{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 750px;
+}
+.country-title {
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.country-detail{
+	border-left: 2px solid #BA9BC9;
+}
+.country-detail-flag{
+	display: none;
+}
+.country-flag {
+/*	background: url('images/ca.gif') no-repeat;
+	background-size: 100% auto;*/
+	width:100px;
+	height: auto;
+	margin: 0 auto;
+}
+.country-name {
+	margin-top: 10px;
+}
+.country-emb {
+	font-size: 1.3rem;
+	font-weight: bold;
+	color: #BA9BC9;
+	margin-bottom: 15px;
+}
+.country-name a {
+	color: black;
+}
+.country-emb a {
+	color: #BA9BC9;
+}
+.country-web {
+	word-wrap: break-word;
+}
+
+.hr {
+	background: url('images/line_cube.png');
+	height: 48px;
+	width: 100%;
+}
+
+.footer {
+	height: 155px;
+    line-height: 155px;
+	text-align: center;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.mobile .country-wrap{
+	display: none;
+}
+
+@media print {
+	.country-block {
+		max-height: 500px;
+	}
+}
+
+
+@media only screen and (max-width: 992px) {
+	body {
+		background-color: white;
+	}
+	.desktop{
+		display: none;
+	}
+	.navbar-wrap {		
+		height: 6em;
+	}
+	.navfade {
+		height: 6em;
+	}
+	.navbar {
+		width: 95%;
+	}
+	
+	.nav-item {
+		line-height: normal;
+		margin:0.4em auto;
+	}
+	#nav-logo{
+
+	}
+	#nav-lang{
+		margin:0;
+		position: absolute;
+		top: 1em;
+		right: 0.5em;
+		/*font-size: 1.2em;*/
+	}
+	#nav-title{
+		margin:0 auto;
+		font-size: 1.2em;
+	}
+	.map-nav {
+		width: 96%;
+		height: auto;
+		font-size: 1.2em;
+		margin: 0.5em auto;
+	}
+	.map-navitem {
+		display: block;
+		margin: 0.5em auto;
+		padding: 0.5em 1em 0.5em 2em;
+	}
+	.map-navitem:after{
+		font-size: 1.2em;
+		content:"◀";
+		float: right;
+	}
+	.map-navitem-active:after{
+		content: "▼" !important;
+	}
+	.mobile .map-navitem-active + .country-wrap{
+		display: block;
+		width: 100%;
+		margin: 1em auto;
+	}
+	.mobile .country-row {
+		display: block;
+		width: 100%;
+		margin: 0;
+		box-sizing: border-box;
+		border-left: none;
+	}
+	.mobile .country-block {
+		display: block;
+		width: 100%;
+		padding:0 1.5em;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.mobile .country-split-left{
+		display: none;
+	}
+	.mobile .country-split-right{
+		width: 100%;
+	}
+	.mobile .country-detail{
+		border: 0px;
+		border-bottom: 0.2em solid #BA9BC9;
+	}
+	.mobile .country-detail .country-detail-flag{
+		display: inline-block;
+		width:12%;
+		vertical-align: top;
+		margin-top: 1em;
+		margin-right:0.5em;
+	}
+	.mobile .country-row:last-child .country-detail:last-child{
+		border-bottom: 0px;
+	}
+	.mobile .country-emb{
+		font-size: 1.4em;
+		margin-bottom: 0px;
+		white-space: initial;
+	}
+	html[lang="en"] .mobile .country-emb{
+		font-size: 1.2em;
+	}
+	.mobile .country-emb a{
+		display: inline-block;
+		width:85%;
+		padding: 1em 0em;
+	}
+	.mobile .country-block:not(:first-child) {
+		border-left: none;
+	}
+	.mobile .country-title {
+		display: none;
+	}
+	.mobile .country-continue {
+		border: none;
+	}
+	.mobile #map-content, .mobile .country-web {
+		display: none;
+	}
+	.footer {
+		font-size: 0.5em;
+		font-weight: bold;
+	}
+}

@@ -1,0 +1,107 @@
+.marquee-area {
+    display: flex;
+    flex-direction: column;
+    padding: 15px
+}
+
+.marquee-area .left {
+    font-weight: bold;
+    color: #000
+}
+
+.marquee-area .right {
+    box-sizing: border-box
+}
+
+.marquee-area .swiper_marquee {
+    height: 60px
+}
+
+.marquee-area a {
+    box-sizing: border-box;
+    display: flex;
+    height: 60px;
+    width: 100%;
+    align-items: center;
+    color: #337ab7;
+    overflow: hidden;
+    text-decoration: none
+}
+
+.marquee-area a p {
+    font: inherit;
+    display: block;
+    font-size: 1em;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    box-orient: vertical;
+    -webkit-box-orient: vertical !important;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    line-height: 1.5em;
+    height: 3em
+}
+
+.marquee-area a:hover p,
+.marquee-area a:focus p {
+    color: #23527c !important;
+    text-decoration: underline !important
+}
+
+.marquee-area .swiper-pagination {
+    position: static;
+    transform: none;
+    display: flex
+}
+
+.marquee-area .swiper-pagination-bullet {
+    margin-left: 5px !important;
+    background-color: transparent;
+    border: 1px solid #999;
+    transition: all .35s ease;
+    opacity: 1;
+    transition-property: background-color, border-color
+}
+
+.marquee-area .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    border-color: #337ab7;
+    background-color: #337ab7
+}
+
+.marquee-area .swiper-pagination-bullet:first-of-type {
+    margin-left: 0 !important
+}
+
+
+/*# sourceMappingURL=marquee-2022.css.map */
+
+/* accessibility 2022 start */
+
+.center-menu {
+  background-color: #464646;
+}
+
+a{
+  color: #285F8F;
+}
+
+.contact-highlight p, .contact-highlight a {
+  color: #AA130E !important;
+}
+
+.marquee-area a {
+  color: #285F8F;
+}
+
+.second-page-header-bg {
+  background-color: #464646;
+}
+
+.header{
+  background-color: #464646;
+  z-index: 1;
+}
+
+/* accessibility 2022 end */

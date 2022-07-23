@@ -1,0 +1,11 @@
+.header, .bgImageContainer .imgContainer.next, .bgImageContainer .imgContainer.active, .second-page-header-bg {
+	background-size: 100% auto;
+}
+
+.center-menu {
+	background-size: 100% auto;
+}
+	
+.second-menu {
+	background-size: 100% auto;
+}

@@ -1,0 +1,51 @@
+a[href]:after {
+	content: none !important;
+}
+
+#Events, #Photos, #video, #map {
+        page-break-after:always;
+}
+
+div.list-row {
+    display: table;
+    page-break-after: always !important;
+    page-break-inside: avoid !important;
+}
+
+div.list-row .contact {
+    display: table-cell !important;
+}
+
+div.col-md-4 {
+    width: 100%;
+}
+
+div.col-md-3 {
+    width: 100%;
+}
+
+.not-print {
+	display: none !important;
+}
+	
+#not-print {
+	display: none !important;
+}
+	
+
+
+.center-menu {
+  background-color: #464646;
+}
+
+a{
+  color: #285F8F;
+}
+
+.contact-highlight p, .contact-highlight a {
+  color: #AA130E !important;
+}
+
+.marquee-area a {
+  color: #285F8F;
+}

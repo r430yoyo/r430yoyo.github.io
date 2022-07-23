@@ -1,0 +1,67 @@
+/*****************************************************
+ * generic styling for ALS elements: outer container
+ ******************************************************/
+
+.als-container {
+	position: relative;
+	width: 100%;
+	/* border: 1px solid blue; */
+}
+
+/****************************************
+ * viewport styling
+ ***************************************/
+
+.als-viewport {
+	width: 950px !important;
+	position: relative;
+	overflow: hidden;
+	margin: 0px auto;
+	/* border: 1px solid red; */
+}
+
+.als-wrapper {
+	position: relative;
+	list-style: none;
+	padding-left: 0px !important;
+}
+
+/*************************************
+ * item: single list element
+ ************************************/
+
+.als-item {
+	position: relative;
+	display: block;
+	text-align: center;
+	cursor: pointer;
+	float: left;
+	margin-right: 16px;
+}
+
+.als-item img {
+	width: 122px;
+	height: 50px;
+}
+
+/***********************************************
+ * prev, next: buttons styling
+ **********************************************/
+ 
+.als-prev, .als-next {
+	position: absolute;
+	cursor: pointer;
+	clear: both;
+}
+
+.als-prev {
+	top: 15px;
+	left: 3px;
+}
+
+
+.als-next {
+	top: 15px;
+	left: 999px;
+}
+

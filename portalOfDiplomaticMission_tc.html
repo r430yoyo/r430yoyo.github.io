@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
+  <title>中華民國駐外單位聯合網站</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="/cssCommon/jquery.marquee.css">
+  <link rel="stylesheet" media="all" href="/cssCommon/version2/cameo_all.css" />
+  <link rel="stylesheet" media="screen and (max-width: 768px)" href="/cssCommon/version2/cameo_480px.css" />
+  <link rel="stylesheet" media="screen and (min-width: 769px)" href="/cssCommon/version2/cameo_768px.css" />
+  <link rel="stylesheet" media="screen and (min-width: 1200px)" href="/cssCommon/version2/cameo_1200px.css" />
+  <link rel="stylesheet" media="screen and (min-width: 1366px)" href="/cssCommon/version2/cameo_1366px.css" />
+  <link rel="stylesheet" href="styles_accessibility.css?v=1">
+
+  <script src="/jsCommon/jquery-1.12.3.min.js"></script>
+  <script type="text/javascript" src="map-manager.js"></script>
+  <script src="/jsCommon/jquery.marquee.min.js"></script>
+</head>
+
+<body>
+  <div class="navbar-wrap">
+    <div class="navbar">
+      <div class="navfade"></div>
+      <div class="nav-item" id="nav-logo">
+        <div id="nav-logo-flag"></div>
+        <div id="nav-logo-text"></div>
+      </div>
+      <div class="nav-item" id="nav-title">
+        <h2>中華民國駐外單位網站連結</h2>
+      </div>
+      <div class="nav-item" id="nav-lang"><a href="portalOfDiplomaticMission_en.html#ALL">English</a></div>
+    </div>
+  </div>
+
+  <div class="map-wrap">
+    <ul class="map-nav mobile">
+      <li class="map-navitem noselect map-navitem-active" data-area="ALL">全部</li>
+      <div class="country-wrap"></div>
+      <li class="map-navitem noselect" data-area="NorthAmerica">北美洲</li>
+      <li class="map-navitem noselect" data-area="Europe">歐洲</li>
+      <li class="map-navitem noselect" data-area="Asia">亞洲</li>
+      <li class="map-navitem noselect" data-area="CentralSouthAmerica">拉丁美洲及加勒比海地區</li>
+      <li class="map-navitem noselect" data-area="Africa">非洲</li>
+      <li class="map-navitem noselect" data-area="NewSouthbound">新南向國家</li>
+    </ul>
+    <div id="map-content"></div>
+  </div>
+
+  <div class="desktop">
+    <div class="headline-wrap">
+      <div class="row list-row headline-area" style="display: none;">
+        <div class="col-md-2">
+          重點消息
+        </div>
+        <div class="col-md-10">
+          <ul id="marquee" class="marquee"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="country-wrap"></div>
+  </div>
+
+  <div class="hr"></div>
+
+  <div class="footer">中華民國外交部 版權所有 Copyright © 2022 All Rights Reserved.</div>
+
+  <script src="/jsCommon/fixDynamicForAA.js"></script>
+
+  <script>
+
+    var show_area = "";
+    var continentOrder = [];
+    $("[data-area]").each(function (idx, item) {
+      var lookup = $(item).data('area');
+      if (lookup != "ALL") continentOrder.push(lookup);
+    });
+
+    function getContinentOrShowAreaIfMatch(item) { // item = "aaa,bbb"
+      var res = "";
+      if (item) {
+        var cons = item.split(",");
+        if (cons.indexOf(show_area) != -1) res = show_area;
+        else res = cons[0];
+      }
+      return res;
+    }
+
+    function get_country_list() {
+      var applyOrder = [];
+      MapMgr.clearMarkers();
+      $(".country-wrap").empty();
+      if (continentOrder.indexOf(show_area) == -1) {
+        show_area = "ALL";
+        applyOrder = continentOrder.slice(0);
+      } else applyOrder = [show_area];
+      $.getJSON("embassy.json", function (json) {
+        var block_count = 0;
+        var chooseRe = new RegExp("/([^/]+)/?(index\.html)?$");
+        var continentToCountrys = {};
+        // collect mappings
+        for (var i = 0; i < json.length; i++) {
+          var item = json[i];
+          if (item.hidden === true) continue;
+          var continent = getContinentOrShowAreaIfMatch(item["continent"]);
+          if (continent != show_area && show_area != "ALL") continue;
+          // key: country_ch
+          var key = item["country_ch"];
+          var countryToItemArray = continentToCountrys[continent];
+          if (!countryToItemArray) countryToItemArray = continentToCountrys[continent] = {};
+          if (!countryToItemArray[key]) countryToItemArray[key] = [];
+          countryToItemArray[key].push(item);
+        }
+
+        for (var idx = 0, orderlen = applyOrder.length; idx < orderlen; idx++) {
+          var countryToItemArray = continentToCountrys[applyOrder[idx]];
+          for (var k in countryToItemArray) {
+            // sort
+            var items = countryToItemArray[k];
+            // items.sort(function(a, b){
+            // 	var aurl = a["url_new"],
+            // 		burl = b["url_new"],
+            // 		amatches = aurl.match(chooseRe),
+            // 		bmatches = burl.match(chooseRe);
+            // 	if(amatches.length > 1 && bmatches.length > 1){
+            // 		return (amatches[1] < bmatches[1])? -1 : 1;
+            // 	}
+            // 	return 0;
+            // });
+            var titleBlock = "";
+            var detailBlock = "";
+            for (var i = 0, len = items.length; i < len; i++) {
+              var item = items[i];
+              if (i == 0) {
+                titleBlock +=
+                  '<div class="country-block country-title"> <div class="country-flag"><a href="' +
+                  item["url_new"] + '" target="_blank" title="flag link"><img src="images/flag/' + item["flag"] +
+                  '" width="100%" alt="flag"></a></div> <div class="country-name"><a href="' +
+                  item["url_new"] + '" target="_blank" title="flag link">' + item["country_ch"] + '</a></div> </div>';
+              }
+              detailBlock += '<div class="country-block country-detail"> <div class="country-emb">' +
+                '<div class="country-detail-flag">' + '<img src="images/flag/' + item["flag"] +
+                '" width="100%" alt="flag">' + '</div>' +
+                '<a href="' +
+                item["url_new"] + '" target="_blank" title="country link">' +
+                item["name_ch"] +
+                '</a></div> <div style="display:none;" class="country-tel">電話：' +
+                item["tel"] + '</div> <div style="display:none;" class="country-add">地址：' +
+                item["add"] + '</div> <div class="country-web">網址：<a href="' +
+                item["url_new"] + '" target="_blank" title="country link">' + item["url_new"] + '</a></div> </div>';
+
+              if (item.lat_city == "NA" || item.lng_city == "NA" ||
+                item.lat_city == "" || item.lng_city == "") {
+                console.log(item["name_ch"] + " has no lat lng");
+              } else {
+
+                var html = '<div style="max-width:370px;">' + "<h2>" + item["name_ch"] + "</h2>";
+                html += "<p>電話：" + item["tel"] + "</p>";
+                html += "<p>館址：" + item["add"] + "</p>";
+                html += "<p><a href=\"" + item["url_new"] + "\" target=\"_blank\">" + item["url_new"] + "</a></p></div>";
+
+                MapMgr.addInfo(html, { lat: item.lat_city, lng: item.lng_city });
+              }
+            }
+            if (items.length > 3) {
+              $(".country-wrap").append('<div class="country-row">' +
+                '<div class="country-split-left">' + titleBlock + '</div>' +
+                '<div class="country-split-right">' + detailBlock +
+                '</div>');
+            } else {
+              $(".country-wrap").append('<div class="country-row">' + titleBlock + detailBlock + '</div>');
+            }
+          }
+        }
+        MapMgr.fitBounds();
+
+        // for (var i = 0; i < json.length; i++) {
+        // 	// console.log(json[i]["continent"]);
+        // 	if (json[i]["continent"] != show_area && show_area != "ALL") {
+        // 		continue;
+        // 	}
+        // 	if (block_count > 3) {
+        // 		block_count = 0;
+        // 		$("#now_row").removeAttr('id');
+        // 		$(".country-wrap").append('<div class="country-row country-continue" id="now_row"></div>');
+        // 	}
+        // 	if (json[i]["country_ch"] != now_country) {
+        // 		block_count = 0;
+        // 		$("#now_row").removeAttr('id');
+        // 		$(".country-wrap").append('<div class="country-row" id="now_row"></div>');
+        // 		$("#now_row").append('<div class="country-block country-title"> <div class="country-flag"><a href="'+json[i]["url_new"]+'" target="_blank"><img src="images/flag/'+json[i]["flag"]+'" width="100" height="57"></a></div> <div class="country-name"><a href="'+json[i]["url_new"]+'" target="_blank">'+json[i]["country_ch"]+'</a></div> </div>');
+        // 		block_count++;
+        // 		now_country = json[i]["country_ch"];
+        // 	}
+        // 	$("#now_row").append('<div class="country-block country-detail"> <div class="country-emb"><a href="'+json[i]["url_new"]+'" target="_blank">'+json[i]["name_ch"]+'</a></div> <div style="display:none;" class="country-tel">電話：'+json[i]["tel"]+'</div> <div style="display:none;" class="country-add">地址：'+json[i]["add"]+'</div> <div class="country-web">網址：<a href="'+json[i]["url_new"]+'" target="_blank">'+json[i]["url_new"]+'</a></div> </div>');
+        // 	block_count++;
+        // }
+      });
+    }
+
+    (function () {
+      if (location.hash) {
+        var target = location.hash.slice(1)
+        if (continentOrder.indexOf(target) != -1) {
+          show_area = target;
+        }
+      }
+    })();
+
+    function googleMapAPICallback() {
+      var isMobile = false;
+      if ($(".mobile .country-wrap").css('display') != "none") {
+        // mobile
+        isMobile = true;
+        $(".map-navitem:first").removeClass("map-navitem-active");
+        MapMgr.disable();
+      } else {
+        // desktop
+        MapMgr.init();
+      }
+      if (show_area) $("li[data-area=" + show_area + "]").trigger('click');
+      else if (!isMobile) get_country_list();
+    }
+
+    $(".map-navitem").click(function () {
+      if ($(this).hasClass("map-navitem-active") && $(".mobile .country-wrap").css('display') != "none") {
+        $(this).removeClass("map-navitem-active");
+      } else {
+        $(".map-navitem").removeClass("map-navitem-active");
+        $(this).addClass("map-navitem-active");
+        show_area = $(this).data("area");
+        window.location.hash = show_area;
+        $(".mobile .country-wrap").detach().insertAfter(this);
+        get_country_list();
+      }
+    });
+
+  </script>
+
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOxxIuXkZOVerYnqzyYAb3tPKwCAbjCok&callback=googleMapAPICallback&language=zh-TW&region=TW"
+    async defer></script>
+
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-71885452-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <script>
+    // 20170103 kino added: 讀取 us 的 headline.json 當作 中文 語系的 重點消息
+    function initMarquee() {
+      $.getJSON("/us/js/headline.json", function (lstData) {
+        if (lstData == null) return;
+        if (lstData.length > 0) {
+          $(".headline-area").show();
+          var strInnerHtml = "";
+          for (var i = 0; i < lstData.length; i++) {
+            strInnerHtml += "<li><a href=\"" + lstData[i].strUrl + "\"" + (lstData[i].isNeedBlankPage ? " target=\"_blank\"" : "") + ">";
+            strInnerHtml += lstData[i].strHeadline + "</a></li>"
+          }
+          $("#marquee").html(strInnerHtml);
+          $("#marquee").marquee({ yScroll: "bottom" });
+        } else {
+          $(".headline-area").hide();
+        }
+      })
+        .fail(function () {
+          console.log("[index] initMarquee / load headline.json error!");
+          $(".headline-area").hide();
+        })
+    }
+    $(window).load(initMarquee);
+  </script>
+</body>
+
+</html>

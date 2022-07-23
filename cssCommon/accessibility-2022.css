@@ -1,0 +1,23 @@
+/* accessibility 2022 start */
+
+.center-menu {
+  background-color: #464646;
+}
+
+a{
+  color: #285F8F;
+}
+
+.contact-highlight p, .contact-highlight a {
+  color: #AA130E !important;
+}
+
+.marquee-area a {
+  color: #285F8F;
+}
+
+.second-page-header-bg {
+  background-color: #464646;
+}
+
+/* accessibility 2022 end */

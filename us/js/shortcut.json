@@ -1,0 +1,56 @@
+[
+  {
+    "isNeedBlankPage": "1",
+    "strIconName": "glyphicon glyphicon-info-sign",
+    "strName": "COVID-19疫情外籍人士入境管制措施",
+    "strUrl": "https://www.boca.gov.tw/cp-56-5078-41ac3-1.html"
+  },
+  {
+    "isNeedBlankPage": "1",
+    "strIconName": "glyphicon glyphicon-folder-open",
+    "strName": "授權書與拋棄繼承證明驗證說明",
+    "strUrl": "https://www.roc-taiwan.org/us/post/10753.html"
+  },
+  {
+    "isNeedBlankPage": "1",
+    "strIconName": "glyphicon glyphicon-paperclip",
+    "strName": "美國聯邦調查局(FBI)無犯罪紀錄(或犯罪紀錄)",
+    "strUrl": "https://www.roc-taiwan.org/us/post/10759.html"
+  },
+  {
+    "isNeedBlankPage": "0",
+    "strIconName": "glyphicon glyphicon-education",
+    "strName": "Taiwan Centers for Mandarin Learning in the US",
+    "strUrl": "https://www.us2taiwan.org/about-taiwan-language-centers"
+  },
+  {
+    "isNeedBlankPage": "1",
+    "strIconName": "glyphicon glyphicon-education",
+    "strName": "Learn \u0026amp; Study in Taiwan",
+    "strUrl": "http://www.us2taiwan.org"
+  },
+  {
+    "isNeedBlankPage": "1",
+    "strIconName": "glyphicon glyphicon-paperclip",
+    "strName": "國外出生首次申請護照",
+    "strUrl": "https://www.roc-taiwan.org/us/post/278.html"
+  },
+  {
+    "isNeedBlankPage": "1",
+    "strIconName": "glyphicon glyphicon-paperclip",
+    "strName": "美國國務院驗證需知",
+    "strUrl": "https://travel.state.gov/content/travel/en/records-and-authentications.html"
+  },
+  {
+    "isNeedBlankPage": "1",
+    "strIconName": "glyphicon glyphicon-info-sign",
+    "strName": "台灣就業金卡",
+    "strUrl": "https://www.roc-taiwan.org/us/post/9908.html"
+  },
+  {
+    "isNeedBlankPage": "1",
+    "strIconName": "glyphicon glyphicon-info-sign",
+    "strName": "領務轄區懶人包",
+    "strUrl": "https://www.facebook.com/TECRO.USA/posts/1497688667089782"
+  }
+]

@@ -1,0 +1,96 @@
+@media only screen and (min-width: 769px) {
+    
+}
+
+.page-content{
+    padding:0;
+    background-color: transparent;
+}
+table.opendata-table, table.opendata-calendar, table.opendata-calendar-mobile{
+    border-spacing: 6px;
+    border-collapse: separate;
+}
+
+table.opendata-table td, table.opendata-calendar td, table.opendata-calendar th, table.opendata-calendar-mobile td{
+    white-space: pre-line;
+    border: 0;
+}
+
+table.opendata-table td:first-child{
+    width: 16.7%;
+    text-align:center;
+    vertical-align: top;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    background-color: #23347d;
+    border-style: solid;
+    border-width: 3px 0px 0px 3px;
+    border-color: #000000;
+}
+
+table.opendata-table td:last-child{
+    background-color: #dedddb;
+}
+
+
+table.opendata-calendar tr.calendar-year td{
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 5px 0 5px 0px;
+    text-align: center;
+    background-color: #E2F4FE;
+    margin: 0px;
+}
+
+table.opendata-calendar tr.calendar-items td{
+    /*border: 1px solid #999;*/
+    padding: 5px;
+    text-align: center;
+    font-size: 1em;
+    background-color: #dedddb;
+}
+
+table.opendata-calendar tr.calendar-header th{
+    vertical-align: top;
+    padding: 10px;
+    text-align: center;
+    color: #FFF;
+    background-color: #23347d;
+    border-style: solid;
+    border-width: 3px 0px 0px 3px;
+    border-color: #000000;
+}
+
+table.opendata-calendar-mobile{
+    display: none;
+}
+
+table.opendata-calendar-mobile tr.calendar-mobile-title td{
+    vertical-align: top;
+    padding: 10px;
+    text-align: center;
+    color: #FFF;
+    background-color: #23347d;
+    border-style: solid;
+    border-width: 3px 0px 0px 3px;
+    border-color: #000000;
+}
+
+table.opendata-calendar-mobile tr.calendar-mobile-item td{
+    padding: 5px;
+    text-align: center;
+    font-size: 1em;
+    background-color: #dedddb;
+}
+
+@media screen and (max-width: 768px){
+    table.opendata-calendar-mobile{
+        display: table;
+    }
+    table.opendata-calendar{
+        display: none;
+    }
+}
+
+
