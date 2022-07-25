@@ -559,3 +559,11 @@ input, select, textarea{
 .gdpr-cookie-inner{
 	display: table;
 }
+
+/* accessibility 2022 start */
+
+/* .logo-area .logo-background a {
+	color: #C4C4C4;
+} */
+
+/* accessibility 2022 end */

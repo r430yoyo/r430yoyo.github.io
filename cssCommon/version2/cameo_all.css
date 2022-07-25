@@ -832,8 +832,8 @@ a[accesskey]{
   color: #636363;
 }
 
-.logo-area a {
-	color: #C4C4C4;
+.logo-area .logo-background a {
+	color: #B5B5B5;
 }
 
 /* accessibility 2022 end */
