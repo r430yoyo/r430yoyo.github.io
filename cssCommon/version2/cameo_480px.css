@@ -562,8 +562,8 @@ input, select, textarea{
 
 /* accessibility 2022 start */
 
-/* .logo-area .logo-background a {
-	color: #C4C4C4;
-} */
+#map .list-title-container h3 {
+  color: #fff;
+}
 
 /* accessibility 2022 end */
