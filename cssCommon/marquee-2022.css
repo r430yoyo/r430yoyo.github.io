@@ -95,8 +95,9 @@ a{
   color: #285F8F;
 }
 
-.second-page-header-bg {
+.second-page-header {
   background-color: #464646;
+  z-index: 0;
 }
 
 .header{

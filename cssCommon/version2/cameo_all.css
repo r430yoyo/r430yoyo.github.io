@@ -825,11 +825,6 @@ a[accesskey]{
 /* accessibility 2022 start */
 
 .navbar-wrap {
-	position: relative;
-	height: 70px;
-	background: url('images/menu_bg_00.jpg') center no-repeat;
-	background-size: 100% auto;
-	z-index: 1;
   background-color: #464646;
 }
 
