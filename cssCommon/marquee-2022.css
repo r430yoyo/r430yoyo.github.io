@@ -105,4 +105,8 @@ a{
   z-index: 1;
 }
 
+span.search-result-highlight {
+  color: #BD0000 !important;
+}
+
 /* accessibility 2022 end */
