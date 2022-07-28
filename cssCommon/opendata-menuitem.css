@@ -104,4 +104,8 @@ table.opendata-calendar tr.calendar-items td{
   background-color: #f0f0f0;
 }
 
+table.opendata-calendar-mobile tr.calendar-mobile-item td{
+  background-color: #f0f0f0;
+}
+
 /* accessibility 2022 end */
