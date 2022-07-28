@@ -824,6 +824,10 @@ a[accesskey]{
 
 /* accessibility 2022 start */
 
+body{
+  background-color: #fafafa;
+}
+
 .navbar-wrap {
   background-color: #464646;
 }
@@ -834,6 +838,15 @@ a[accesskey]{
 
 .logo-area .logo-background a {
 	color: #B5B5B5;
+}
+
+.page-content{
+  background-color: #f0f0f0;
+  color: #1c1c1c;
+}
+
+.content-title {
+  color: #182588;
 }
 
 /* accessibility 2022 end */

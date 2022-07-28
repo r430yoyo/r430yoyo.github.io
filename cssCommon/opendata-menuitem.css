@@ -94,3 +94,14 @@ table.opendata-calendar-mobile tr.calendar-mobile-item td{
 }
 
 
+/* accessibility 2022 start */
+
+table.opendata-table td:last-child {
+  background-color: #f0f0f0;
+}
+
+table.opendata-calendar tr.calendar-items td{
+  background-color: #f0f0f0;
+}
+
+/* accessibility 2022 end */
