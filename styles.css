@@ -367,3 +367,15 @@ a {
 		font-weight: bold;
 	}
 }
+
+/* accessibility 2022 start */
+
+.marquee-area {
+  font-size: 1.55em;
+}
+
+.country-emb a {
+  color: #182588;
+}
+
+/* accessibility 2022 end */

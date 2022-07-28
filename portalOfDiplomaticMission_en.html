@@ -7,6 +7,8 @@
   <title>ROC Embassies and Missions Abroad</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/cssCommon/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/cssCommon/marquee-2022.css" />
   <link rel="stylesheet" href="styles.css?v=1">
   <link rel="stylesheet" href="/cssCommon/jquery.marquee.css">
   <link rel="stylesheet" media="all" href="/cssCommon/version2/cameo_all.css" />
@@ -53,14 +55,32 @@
 
   <div class="desktop">
     <div class="headline-wrap">
-      <div class="row list-row headline-area" style="display: none;">
+      <!-- 2022 新的重點消息樣式 start -->
+      <div class="row list-row">
+        <div class="marquee-area">
+          <div class="left">
+            Hot News
+          </div>
+          <div class="right">
+            <div class="swiper swiper_marquee">
+              <div class="swiper-wrapper" id="swiper-marquee">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 2022 新的重點消息樣式 end -->
+
+      <!-- 2022 舊的重點消息樣式 start -->
+      <!-- <div class="row list-row headline-area" style="display: none;">
         <div class="col-md-2">
           Hot News
         </div>
         <div class="col-md-10">
           <ul id="marquee" class="marquee"></ul>
         </div>
-      </div>
+      </div> -->
+      <!-- 2022 舊的重點消息樣式 end -->
     </div>
     <div class="country-wrap"></div>
   </div>
@@ -257,7 +277,7 @@
     ga('send', 'pageview');
 
   </script>
-  <script>
+  <!-- <script>
     // 20170103 kino added: 讀取 us_en 的 headline.json 當作 英文 語系的 重點消息
     function initMarquee() {
       $.getJSON("/us_en/js/headline.json", function (lstData) {
@@ -278,6 +298,50 @@
         .fail(function () {
           console.log("[index] initMarquee / load headline.json error!");
           $(".headline-area").hide();
+        })
+    }
+    $(window).load(initMarquee);
+  </script> -->
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    function initMarquee() {
+      $.getJSON("/us_en/js/headline.json", function (lstData) {
+        if (lstData == null) return;
+        if (lstData.length > 0) {
+          $(".marquee-area").show();
+          var strInnerHtml = "";
+          for (var i = 0; i < lstData.length; i++) {
+            strInnerHtml += "<div class='swiper-slide'><a href=\"" + lstData[i].strUrl + "\"" + (lstData[i].isNeedBlankPage ? " target=\"_blank\"" : "") + "><p>";
+            strInnerHtml += lstData[i].strHeadline + "</p></a></div>"
+          }
+
+          $("#swiper-marquee").html(strInnerHtml);
+
+          const swiper_marquee = new Swiper('.swiper_marquee', {
+            speed: 600,
+            direction: 'vertical',
+            loop: true,
+            // If we need pagination
+            pagination: {
+              el: '.page_marquee',
+              clickable: true,
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+              delay: 3000,
+            },
+          });
+
+        } else {
+          $(".marquee-area").hide();
+        }
+      })
+        .fail(function () {
+          console.log("[index] initMarquee / load headline.json error!");
+          $(".marquee-area").hide();
         })
     }
     $(window).load(initMarquee);
