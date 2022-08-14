@@ -828,6 +828,11 @@ body{
   background-color: #fafafa;
 }
 
+.second-page-header {
+  background-color: #464646;
+  z-index: 0;
+}
+
 .navbar-wrap {
   background-color: #464646;
 }
