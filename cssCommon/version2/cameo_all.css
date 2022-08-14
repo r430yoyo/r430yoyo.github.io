@@ -876,4 +876,8 @@ body{
   z-index:999;
 }
 
+.not-found-text{
+  color: #000000;
+}
+
 /* accessibility 2022 end */
