@@ -828,9 +828,34 @@ body{
   background-color: #fafafa;
 }
 
+.center-menu {
+  background-color: #464646;
+}
+
+a{
+  color: #285F8F;
+}
+
+.contact-highlight p, .contact-highlight a {
+  color: #AA130E !important;
+}
+
+.marquee-area a {
+  color: #285F8F;
+}
+
 .second-page-header {
   background-color: #464646;
   z-index: 0;
+}
+
+.header{
+  background-color: #464646;
+  z-index: 1;
+}
+
+span.search-result-highlight {
+  color: #BD0000 !important;
 }
 
 .navbar-wrap {
@@ -876,7 +901,7 @@ body{
   z-index:999;
 }
 
-.not-found-text{
+.text-black{
   color: #000000;
 }
 
